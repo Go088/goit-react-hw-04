@@ -1,0 +1,38 @@
+.button {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background-color: transparent;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+
+}
+.form {
+    position: relative;
+}
+
+.searchBar {
+    width: 100%;
+    background-color: #4E75FF;
+    padding: 4px;
+    position: fixed;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+}
+.input {
+    width: 460px;
+    height: 36px;
+    padding-left: 40px;
+    border: none;
+    border-radius: 4px;
+}
+.icon{
+    width: 24px;
+    height: 24px;
+}

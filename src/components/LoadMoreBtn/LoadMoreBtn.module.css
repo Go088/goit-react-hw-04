@@ -1,0 +1,18 @@
+.button {
+    margin: 16px auto;
+    display: flex;
+    padding: 8px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 4px;
+    background-color: #4E75FF;
+    border: none;
+    width: 120px;
+    color: #fff;
+
+}
+
+button:hover {
+    background: #6C8CFF;
+}
