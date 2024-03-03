@@ -1,4 +1,5 @@
 import Modal from "react-modal";
+import css from "./ImageModal.module.css";
 
 Modal.setAppElement("#root");
 
@@ -22,7 +23,7 @@ export default function ImageModal({
     <div>
       <Modal isOpen={isOpen} onRequestClose={onClose} style={customStyles}>
         <div>
-          <img src={urls.regular} alt={alt_descriptions} />
+          <img className={css.img} src={urls.regular} alt={alt_descriptions} />
         </div>
       </Modal>
     </div>

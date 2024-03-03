@@ -6,6 +6,7 @@ import LoadMoreBtn from "../LoadMoreBtn/LoadMoreBtn";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import Loader from "../Loader/Loader";
 import ImageModal from "../ImageModal/ImageModal";
+import toast, { Toaster } from "react-hot-toast";
 
 export const App = () => {
   const [query, setQuery] = useState("");
@@ -26,6 +27,9 @@ export const App = () => {
         setIsLoading(true);
         setError(false);
         const fetchData = await fetchImages(query, page);
+        if (!fetchData.length) {
+          toast.error("Sorry, no images for your request. Please try again!");
+        }
         setPictures((prevImages) => {
           return [...prevImages, ...fetchData];
         });
@@ -60,6 +64,8 @@ export const App = () => {
   return (
     <div>
       <SearchBar onSearch={handleSearch} />
+      <Toaster position="top-right" />
+
       {error && <ErrorMessage />}
       {pictures.length > 0 && (
         <ImageGallery items={pictures} onHandleImage={handleImage} />
