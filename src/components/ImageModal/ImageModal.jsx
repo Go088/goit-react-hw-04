@@ -21,8 +21,6 @@ export default function ImageModal({
   return (
     <div>
       <Modal isOpen={isOpen} onRequestClose={onClose} style={customStyles}>
-        <button onClick={onClose}>close</button>
-        <div>I am a modal</div>
         <div>
           <img src={urls.regular} alt={alt_descriptions} />
         </div>

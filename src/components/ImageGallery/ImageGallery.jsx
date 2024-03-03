@@ -6,7 +6,7 @@ export default function ImageGallery({ items, onHandleImage }) {
     <ul className={css.list}>
       {items.map((item) => {
         return (
-          <li key={item.id} onClick={onHandleImage}>
+          <li key={item.id} onClick={() => onHandleImage(item)}>
             <ImageCart item={item} />
           </li>
         );
