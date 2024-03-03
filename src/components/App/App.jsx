@@ -14,7 +14,7 @@ export const App = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [selectedImage, setSelectedImage] = useState();
+  const [selectedImage, setSelectedImage] = useState(null);
 
   useEffect(() => {
     if (query === "") {
@@ -42,7 +42,6 @@ export const App = () => {
     setQuery(newQuery);
     setPage(1);
     setPictures([]);
-    // scroll.scrollTo(0);
   };
 
   const handleLoadMore = () => {
@@ -50,8 +49,8 @@ export const App = () => {
   };
 
   const handleImage = (image) => {
-    setModalIsOpen(true);
     setSelectedImage(image);
+    setModalIsOpen(true);
   };
 
   const closeModal = () => {

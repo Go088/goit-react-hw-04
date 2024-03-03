@@ -4,10 +4,10 @@ import css from "./ImageGallery.module.css";
 export default function ImageGallery({ items, onHandleImage }) {
   return (
     <ul className={css.list}>
-      {items.map(({ id, alt_description, urls: { small } }) => {
+      {items.map((item) => {
         return (
-          <li key={id} onClick={onHandleImage}>
-            <ImageCart url={small} id={id} alt={alt_description} />
+          <li key={item.id} onClick={onHandleImage}>
+            <ImageCart item={item} />
           </li>
         );
       })}
