@@ -12,6 +12,7 @@ export const App = () => {
   const [query, setQuery] = useState("");
   const [pictures, setPictures] = useState([]);
   const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -27,12 +28,13 @@ export const App = () => {
         setIsLoading(true);
         setError(false);
         const fetchData = await fetchImages(query, page);
-        if (!fetchData.length) {
+        if (!fetchData.results.length) {
           toast.error("Sorry, no images for your request. Please try again!");
         }
         setPictures((prevImages) => {
-          return [...prevImages, ...fetchData];
+          return [...prevImages, ...fetchData.results];
         });
+        setTotalPages(fetchData.total_pages);
       } catch (error) {
         setError(true);
       } finally {
@@ -70,7 +72,7 @@ export const App = () => {
       {pictures.length > 0 && (
         <ImageGallery items={pictures} onHandleImage={handleImage} />
       )}
-      {pictures.length > 0 && !isLoading && (
+      {totalPages > page && pictures.length > 0 && !isLoading && (
         <LoadMoreBtn onClick={handleLoadMore} />
       )}
       {isLoading && <Loader />}

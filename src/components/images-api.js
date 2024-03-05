@@ -7,11 +7,11 @@ export const fetchImages = async (query, page) => {
     params: {
       query,
       page,
-      per_page: 10,
+      per_page: 12,
     },
     headers: {
       Authorization: "Client-ID A9JYAacY3_G2QLuQLAqhxi8TDCu3CBLVWjz-8NOG17Y",
     },
   });
-  return response.data.results;
+  return response.data;
 };
